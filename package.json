@@ -6,7 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typegen": "chakra typegen ./src/contexts/theme.ts",
+    "postinstall": "npm run typegen"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.34.0",
@@ -17,6 +19,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^3.34.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
