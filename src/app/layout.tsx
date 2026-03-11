@@ -1,5 +1,19 @@
 import { ChakraUIProvider } from "@/contexts/ChakraProvider";
 import type { Metadata } from "next";
+import { DM_Sans, Roboto } from "next/font/google";
+
+// TODO: Replace DM Sans with Pastiche Grotesque (next/font/local) when font files are available
+const pasticheGrotesque = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-pastiche-grotesque",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-roboto",
+});
 
 export const metadata: Metadata = {
   title: "Stelo",
@@ -13,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${pasticheGrotesque.variable} ${roboto.variable}`}>
         <ChakraUIProvider>{children}</ChakraUIProvider>
       </body>
     </html>
