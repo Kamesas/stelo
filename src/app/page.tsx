@@ -1,10 +1,13 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Demo } from "@/components/PDPHero/Demo";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
+      <Demo />
+      {/* <main className={styles.main}>
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -60,7 +63,7 @@ export default function Home() {
             Documentation
           </a>
         </div>
-      </main>
+      </main> */}
     </div>
   );
 }

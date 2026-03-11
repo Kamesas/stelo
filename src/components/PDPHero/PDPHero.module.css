@@ -1,0 +1,66 @@
+.slider {
+  width: 100%;
+  height: 100%;
+}
+
+.slider :global(.slick-list),
+.slider :global(.slick-track),
+.slider :global(.slick-slide),
+.slider :global(.slick-slide) div,
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.thumb-btn {
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.thumb-btn:hover {
+  transform: scale(1.06);
+}
+.thumb-btn.active {
+  box-shadow: 0 0 0 2px #c87941;
+}
+.pricing-card {
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+  border: 1.5px solid #e5ddd5;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fdfaf7;
+}
+.pricing-card:hover {
+  border-color: #c87941;
+}
+.pricing-card.selected {
+  border-color: #c87941;
+  background: #fff8f2;
+  box-shadow: 0 0 0 1px #c87941;
+}
+.add-btn {
+  background: #e8a96a;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.add-btn:hover {
+  background: #c87941;
+  transform: translateY(-1px);
+}
