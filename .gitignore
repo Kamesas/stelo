@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# cursor rules (personal)
+.cursor/rules/
+
+# storybook
+/storybook-static
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
