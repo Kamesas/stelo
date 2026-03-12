@@ -12,7 +12,7 @@ import {
   List,
 } from "@chakra-ui/react";
 // import { useState, useRef, useCallback, useEffect } from "react";
-import { SLIDES, PRICING } from "./mockData";
+import {SLIDES, PRICING, PricingOption} from "./mockData";
 import Image from "next/image";
 // import { gsap } from "gsap";
 
@@ -22,10 +22,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./PDPHero.module.css";
+import {PDPHeroProductPricing} from "@/components/PDPHero/PDPHeroProductPricing";
 
 // const AUTO_PLAY_INTERVAL = 4000; // ms
 
 export const Demo = () => {
+  const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
   const [slideIndex, setSlideIndex] = useState(0);
   const [updateCount, setUpdateCount] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
@@ -48,8 +50,9 @@ export const Demo = () => {
     ) => setSlideIndex(next),
   };
 
-  function openCartAlert() {
-    console.log("%c- CART MODAL OPENS -", "color: lime; font-size: 20px;");
+  function selectProduct(id: number){
+    console.log("%c - ITEM ID -", "color: lime; font-size: 20px;", id);
+    setSelectedProduct(id)
   }
 
   return (
@@ -150,76 +153,7 @@ export const Demo = () => {
             ))}
           </Flex>
         </Box>
-        <VStack w="325px" gap="4">
-          {PRICING.map((item, i) => (
-            <Box
-              as="button"
-              cursor="pointer"
-              p="4"
-              key={i}
-              display="block"
-              w="full"
-              bg="#EBE6E0"
-              color="#000"
-              rounded="xl"
-            >
-              <Flex justifyContent="space-between">
-                <Text textStyle="xs">{item.label}</Text>
-                {item.badge && (
-                  <Box
-                    as="span"
-                    bg="#F0B377"
-                    px="6px"
-                    py="3px"
-                    rounded="sm"
-                    color="#000"
-                    textStyle="xs"
-                    fontWeight="600"
-                  >
-                    {item.badge}
-                  </Box>
-                )}
-              </Flex>
-              <Flex justifyContent="space-between">
-                <Text textStyle="lg">{item.product}</Text>
-                <Flex align="center" gap="1">
-                  <Text textStyle="lg">{item.price}</Text>
-                  {item.originalPrice && (
-                    <Text textStyle="xs" as="s" color="#291928">
-                      {item.originalPrice}
-                    </Text>
-                  )}
-                </Flex>
-              </Flex>
-              {item.bullets && (
-                <>
-                  <Separator borderColor="#000" my="2" />
-                  <List.Root>
-                    {item.bullets.map((bullet, j) => (
-                      <List.Item
-                        key={j}
-                        textAlign="left"
-                        listStyleType="none"
-                        textStyle="sm"
-                      >
-                        • {bullet}
-                      </List.Item>
-                    ))}
-                  </List.Root>
-                </>
-              )}
-            </Box>
-          ))}
-          <Button
-            variant="solid"
-            p="4"
-            width="full"
-            rounded="full"
-            onClick={openCartAlert}
-          >
-            Add to cart
-          </Button>
-        </VStack>
+        <PDPHeroProductPricing onSelectCallback={setSelectedProduct} />
       </Flex>
     </Box>
   );
