@@ -1,10 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
 
-type tSectionNavProps = {
+type SectionNavProps = {
   label: string;
 };
 
-export function SectionNav({ label }: tSectionNavProps) {
+export function SectionNav({ label }: SectionNavProps) {
   return (
     <Flex
       bg="rgba(0, 0, 0, 0.2)"
