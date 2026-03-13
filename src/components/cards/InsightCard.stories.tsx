@@ -1,24 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { InsightCard } from "./InsightCard";
-import { InsightSection } from "../sections/InsightSection";
 
 const meta: Meta<typeof InsightCard> = {
   title: "Components/InsightCard",
   component: InsightCard,
   decorators: [
     (Story) => (
-      <InsightSection bgSrc="/images/section-sleep-bg.png">
-        <Box
-          p="10"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          h="100%"
-        >
-          <Story />
-        </Box>
-      </InsightSection>
+      <Flex
+        p="10"
+        minH="100vh"
+        alignItems="center"
+        justifyContent="center"
+        bgImage="url(/images/section-sleep-bg.png)"
+        bgSize="cover"
+        backgroundPosition="center"
+      >
+        <Story />
+      </Flex>
     ),
   ],
   args: {
