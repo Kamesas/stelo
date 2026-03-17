@@ -1,6 +1,7 @@
 import { ChakraUIProvider } from "@/contexts/ChakraProvider";
 import type { Metadata } from "next";
 import { DM_Sans, Roboto } from "next/font/google";
+import "./global.css";
 
 // TODO: Replace DM Sans with Pastiche Grotesque (next/font/local) when font files are available
 const pasticheGrotesque = DM_Sans({
